@@ -62,7 +62,7 @@ public class MeasurementService {
             return BigDecimal.ZERO;
         }
         BigDecimal sum = values.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
-        return sum.divide(new BigDecimal(values.size()));
+        return sum.divide(new BigDecimal(values.size()), 3 , RoundingMode.HALF_UP);
     }
 
 
