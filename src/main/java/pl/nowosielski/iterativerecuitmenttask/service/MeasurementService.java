@@ -45,7 +45,7 @@ public class MeasurementService {
     }
 
     public Measurement getLatestMeasurement(){
-        return measurementRepository.findFirstByOrderByMeasurementTimeDesc();
+        return measurementRepository.findFirstByOrderByMeasurementTimeDesc().orElse(null);
     }
 
     public BigDecimal getAvarageValueBetweenDateTimes(LocalDateTime begin, LocalDateTime end, boolean isGoodValue){

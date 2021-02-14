@@ -6,11 +6,12 @@ import pl.nowosielski.iterativerecuitmenttask.entity.Measurement;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MeasurementRepository extends JpaRepository<Measurement, Long> {
 
-    Measurement findFirstByOrderByMeasurementTimeDesc();
+    Optional<Measurement> findFirstByOrderByMeasurementTimeDesc();
 
     List<Measurement> findAllByMeasurementTimeBetweenAndIsGoodQuality(LocalDateTime begin, LocalDateTime end, boolean isGoodQuality);
 }
